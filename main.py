@@ -31,7 +31,7 @@ def read_root():
     return {"Curious about what MCC Code to use?": "Search now at the /predict endpoint!"}
 
 @app.post("/predict")
-async def predict_mcc(payload: QueryPhrase):
+def predict_mcc(payload: QueryPhrase):
     # Embed query in BERT space
     embeddings_query = model.encode([payload.query], convert_to_tensor=True)
     # Compute cosine-similarities
